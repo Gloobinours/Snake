@@ -1,7 +1,7 @@
 
 import { getInputDirection } from "./input.js";
 
-export const snake_speed = 10;
+export const snake_speed = 8;
 const snakeBody = [ // position of each body part of snake on the grid
     { x: 9, y: 9 },
     // { x: 10, y: 9 },
