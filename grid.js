@@ -8,6 +8,4 @@ export const randomGridPosition = () => {
     }
 }
 
-export const outsideGrid = (position) => {
-    return position.x < 1 || position.x > grid_size || position.y < 1 || position.y > grid_size;
-};
+export const outsideGrid = (position) => position.x < 1 || position.x > grid_size || position.y < 1 || position.y > grid_size;

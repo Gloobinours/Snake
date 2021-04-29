@@ -7,7 +7,7 @@ const snakeBody = [ // position of each body part of snake on the grid
     // { x: 10, y: 9 },
     // { x: 11, y: 9 }
 ];
-let newSegments = 0;
+let newSegments = 2;
 
 export let updateSnake = () => {
     addSegments();
@@ -33,7 +33,7 @@ export let expandSnake = (amount) => {
     newSegments += amount;
 };
 
-export let onSnake = (position, { ignoreHead = false } = {}) => {
+export const onSnake = (position, ignoreHead = false) => {
     return snakeBody.some((segment, index) => {
         if (ignoreHead && index === 0) {
             return false;
@@ -42,17 +42,11 @@ export let onSnake = (position, { ignoreHead = false } = {}) => {
     });
 };
 
-export const getSnakeHead = () => {
-    return snakeBody[0];
-}
+export const getSnakeHead = () => snakeBody[0];
 
-export const snakeIntersection = () => {
-    return onSnake(snakeBody[0], { ignoreHead: true })
-};
+export const snakeIntersection = () => onSnake(snakeBody[0], true);
 
-const equalPositions = (pos1, pos2) => {
-    return pos1.x === pos2.x && pos1.y === pos2.y;
-};
+const equalPositions = (pos1, pos2) => pos1.x === pos2.x && pos1.y === pos2.y;
 
 const addSegments = () => {
     for (let i = 0; i < newSegments; i++) {
